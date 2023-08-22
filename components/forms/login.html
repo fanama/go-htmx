@@ -1,0 +1,9 @@
+<form hx-post="/api/login" style="padding: 1em;" hx-trigger="submit" hx-target="#result"
+  hx-swap="beforeend scroll:bottom">
+  <input class="border border-black" id="username" name="username" type="text" hx-trigger="change" />
+  <input id="password" class="border border-black" name="password" type="text" hx-trigger="change" />
+  <button class="border border-1 border-black p-1">add</button>
+</form>
+
+<div id="result" class="flex p-4 flex-col h-[200px] overflow-y-auto">
+</div>

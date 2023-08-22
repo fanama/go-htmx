@@ -1,0 +1,6 @@
+<div class="bg-black text-white flex flex-row mt-1 todo-{{.Username}}">
+  <div class="bg-red-400 text-white hover:cursor-pointer p-4" hx-trigger="click" hx-delete="/" hx-swap="delete"
+    hx-target="closest .todo-{{.Username}}">del</div>
+  <div class="p-4">{{.Username}}</div>
+  <div class="p-4">{{.Password}}</div>
+</div>
