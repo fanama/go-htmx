@@ -1,0 +1,19 @@
+<div id="{{ .ID}}" class="bg-white p-6 rounded shadow-md mb-6">
+  <h2 class="text-2xl font-semibold mb-4">{{ .Title}}</h2>
+  <!-- Add more jobs as required -->
+
+  <div
+    class="p-4"
+    hx-get="/atoms/experience"
+    hx-trigger="load"
+    hx-target="this"
+    hx-swap="outerHTML"
+  ></div>
+  <div
+    class="p-4"
+    hx-get="/atoms/experience"
+    hx-trigger="load"
+    hx-target="this"
+    hx-swap="outerHTML"
+  ></div>
+</div>

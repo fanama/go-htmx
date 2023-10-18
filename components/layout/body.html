@@ -1,0 +1,25 @@
+<div id="{{ .ID}}" class="flex gap-4">
+  <div
+    class="bg-black p-4"
+    hx-get="/atoms/skill"
+    hx-trigger="load"
+    hx-target="this"
+    hx-swap="outerHTML"
+  ></div>
+  <div class="grid grid-cols-2 gap-2">
+    <div
+      class="p-4"
+      hx-get="/molecules/section"
+      hx-trigger="load"
+      hx-target="this"
+      hx-swap="outerHTML"
+    ></div>
+    <div
+      class="p-4"
+      hx-get="/molecules/section"
+      hx-trigger="load"
+      hx-target="this"
+      hx-swap="outerHTML"
+    ></div>
+  </div>
+</div>

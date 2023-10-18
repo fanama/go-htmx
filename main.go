@@ -5,17 +5,17 @@ import (
 	"fmt"
 	"html/template"
 	"log"
+	"strconv"
+	"strings"
 
 	"github.com/gofiber/fiber/v2"
 )
 
-type Headder struct {
-	Title string
-}
-
-type User struct {
-	Username string
-	Password string
+type Component struct {
+	Title     string
+	ClassName string
+	ID        string
+	Content   string
 }
 
 func GetHTML(path string, data any) (string, error) {
@@ -32,27 +32,35 @@ func GetHTML(path string, data any) (string, error) {
 func main() {
 	app := fiber.New()
 
-	app.Post("/api/login", func(c *fiber.Ctx) error {
-
-		user := User{Username: c.FormValue("username"), Password: c.FormValue("password")}
-
-		htmlElement, _ := GetHTML("./components/forms/user.html", user)
-
-		return c.SendString(htmlElement)
-	})
-
 	app.Static("/", "./public")
-	app.Static("/components", "./components")
 
 	app.Delete("/", func(c *fiber.Ctx) error {
 		return nil
 	})
 
-	app.Get("/components/:name", func(c *fiber.Ctx) error {
+	app.Get("/list/:repeat/:folder/:name", func(c *fiber.Ctx) error {
 		name := c.Params("name", "body")
-		path := "./components/" + name + ".html"
+		folder := c.Params("folder", "body")
+		repeat, _ := strconv.Atoi(c.Params("repeat", "0"))
+		path := "./components/" + folder + "/" + name + ".html"
 
-		page := &Headder{Title: name}
+		list := []string{}
+
+		for i := 0; i < repeat; i++ {
+			page := &Component{Title: name, ID: name + strconv.Itoa(i)}
+			htmlElement, _ := GetHTML(path, page)
+			list = append(list, htmlElement)
+		}
+
+		return c.SendString(strings.Join(list, ""))
+	})
+
+	app.Get("/:folder/:name", func(c *fiber.Ctx) error {
+		name := c.Params("name", "body")
+		folder := c.Params("folder", "body")
+		path := "./components/" + folder + "/" + name + ".html"
+
+		page := &Component{Title: name, ID: name}
 
 		htmlElement, err := GetHTML(path, page)
 

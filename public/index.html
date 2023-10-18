@@ -1,50 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic htmx Page</title>
+    <script src="https://unpkg.com/htmx.org@1.6.1"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @tailwind base;
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Basic htmx Page</title>
-  <script src="https://unpkg.com/htmx.org@1.6.1"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @tailwind base;
+      button {
+        @apply p-1 border;
+      }
+    </style>
+  </head>
 
-    button {
-      @apply p-1 border;
-    }
-  </style>
-</head>
-
-<body>
-
-
-  <!-- Div where the content will be loaded -->
-  <div id="headder" hx-get="/components/headder" hx-trigger="load" target="this">
-    <!-- Content will be loaded here -->
-  </div>
-  <!-- Div where the content will be loaded -->
-  <div id="contentDiv" hx-get="/components/body" hx-target="this" hx-trigger="load">
-    <!-- Content will be loaded here -->
-  </div>
-
-  <div id="footer" hx-get="/components/footer" hx-target="this" hx-trigger="load">
-    <!-- Content will be loaded here -->
-  </div>
-
-  <!-- Button that triggers content loading -->
-  <button hx-get="/components/body" hx-target="#contentDiv" hx-indicator="#loadingIndicator">
-    home
-  </button>
-
-  <button hx-get="/components/page2" hx-target="#contentDiv" hx-indicator="#loadingIndicator">
-    todolist
-  </button>
-  <!-- Loading indicator (optional) -->
-  <div id="loadingIndicator" style="display:none;">
-    Loading...
-  </div>
-
-</body>
-
+  <body>
+    <!-- Div where the content will be loaded -->
+    <div
+      id="headder"
+      hx-get="/molecules/headder"
+      hx-trigger="load"
+      target="this"
+      hx-swap="outerHTML"
+    >
+      <!-- Content will be loaded here -->
+    </div>
+    <!-- Div where the content will be loaded -->
+    <div
+      id="contentDiv"
+      hx-get="/layout/body"
+      hx-target="this"
+      hx-trigger="load"
+      hx-swap="outerHTML"
+    >
+      <!-- Content will be loaded here -->
+    </div>
+  </body>
 </html>
