@@ -15,26 +15,10 @@
     </style>
   </head>
 
-  <body>
-    <!-- Div where the content will be loaded -->
-    <div
-      id="headder"
-      hx-get="/molecules/headder"
-      hx-trigger="load"
-      target="this"
-      hx-swap="outerHTML"
-    >
-      <!-- Content will be loaded here -->
-    </div>
-    <!-- Div where the content will be loaded -->
-    <div
-      id="contentDiv"
-      hx-get="/layout/body"
-      hx-target="this"
-      hx-trigger="load"
-      hx-swap="outerHTML"
-    >
-      <!-- Content will be loaded here -->
-    </div>
-  </body>
+  <body
+    hx-get="/cv"
+    hx-trigger="load"
+    hx-target="this"
+    hx-swap="outerHTML"
+  ></body>
 </html>

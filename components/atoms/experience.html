@@ -1,9 +1,5 @@
-<div id="{{ .ID}}" class="bg-white p-6 rounded shadow-md mb-6">
-  <h3 class="text-xl font-bold">{{ .Title}}</h3>
-  <p class="text-gray-600">Company Name, Year - Year</p>
-  <ul class="list-disc pl-5 mt-2 text-gray-700">
-    <li>Job responsibility or achievement 1</li>
-    <li>Job responsibility or achievement 2</li>
-    <!-- Add more list items as required -->
-  </ul>
+<div id="experience-{{ .Title }}" class="bg-white p-6 rounded shadow-md mb-6">
+  <h3 class="text-xl font-bold">{{ .Title }}</h3>
+  <p class="text-gray-600">{{ .Company }}, {{ .StartYear }} - {{ .EndYear }}</p>
+  <p>{{ .Description}}</p>
 </div>
