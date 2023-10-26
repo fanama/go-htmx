@@ -1,0 +1,104 @@
+{
+  "name": "Fana Rakotoasimbola",
+  "profession": "Développeur FullStack",
+  "contact": {
+    "email": "f.rakotoasimbola@gmail.com",
+    "location": "Malakoff, France",
+    "linkedin": "linkedin.com/in/fanamparantsoa-rakotoasimbola-36588915b",
+    "phone": "0601777604",
+    "portfolio": "fanama.github.io"
+  },
+  "sections": [
+    {
+      "title": "EXPÉRIENCE PROFESSIONNELLE",
+      "experiences": [
+        {
+          "title": "Développeur Fullstack",
+          "company": "XXII Group",
+          "description": "XXII CORE est une plateforme logicielle permettant d'analyser en temps réel les flux vidéos des caméras déjà installées dans les villes et les sites privés.",
+          "achievements": ["Corrections de bug des applications"],
+          "start_date": "10/2022",
+          "end_date": "01/2023",
+          "location": "Paris, France"
+        },
+        {
+          "title": "Développeur Fullstack",
+          "company": "Cliris/Dasia",
+          "description": "Cliris – Pionnier de l'analyse des flux vidéo du trafic client et citoyen",
+          "achievements": [
+            "Mise en place de consoles d'administrations",
+            "Création d'un outil de tag d'objets"
+          ],
+          "start_date": "11/2019",
+          "end_date": "10/2022",
+          "location": "Paris, France"
+        },
+        {
+          "title": "Développeur Logiciel",
+          "company": "Aurera",
+          "description": "Société de conseil informatique",
+          "achievements": [
+            "Développement d'un Chatbot avec Node et les technologies Microsoft"
+          ],
+          "start_date": "07/2019",
+          "end_date": "10/2019",
+          "location": "Paris"
+        }
+      ]
+    },
+    {
+      "title": "ÉTUDES",
+      "experiences": [
+        {
+          "title": "Master 2",
+          "company": "Supinfo International University",
+          "start_date": "10/2019",
+          "end_date": "10/2020"
+        }
+      ]
+    }
+  ],
+  "skills": {
+    "technologies": [
+      "React.js",
+      "Node.js",
+      "Jira",
+      "golang",
+      "Mysql",
+      "Linux",
+      "MongoDB",
+      "git",
+      "python",
+      "Docker",
+      "batch"
+    ]
+  },
+  "projects": [
+    {
+      "name": "Bot discord (2019)",
+      "description": "Création d'une intelligence artificielle sur la plateforme discord"
+    },
+    {
+      "name": "Jeu de rôle (07/2020)",
+      "description": "Création d'une application qui facilite le mastering d'un jeu de rôle en React"
+    }
+  ],
+  "languages": [
+    {
+      "name": "Français",
+      "proficiency": 5
+    },
+    {
+      "name": "Anglais",
+      "proficiency": 3
+    },
+    {
+      "name": "Malgache",
+      "proficiency": 2
+    },
+    {
+      "name": "Espagnol",
+      "proficiency": 1
+    }
+  ]
+}

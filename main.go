@@ -13,57 +13,6 @@ import (
 )
 
 type Component = entity.Component
-type Resume = entity.Resume
-
-var resume = entity.Resume{
-	Name:       "John Doe",
-	Profession: "Software Engineer",
-	Sections: []entity.Section{
-		{
-			Title: "Work Experience",
-			Experiences: []entity.Experience{
-				{
-					Title:       "Software Engineer Intern",
-					Description: "Worked on several key projects including...",
-					Company:     "Google",
-					Achievements: []string{
-						"Developed a new algorithm for image classification.",
-						"Improved the performance of the search engine by 10%.",
-					},
-					StartYear: 2022,
-					EndYear:   2023,
-				},
-				{
-					Title:       "Backend Developer",
-					Description: "Focused on developing scalable microservices...",
-					Company:     "Amazon",
-					Achievements: []string{
-						"Optimized data storage solutions.",
-						"Led a team for a critical infrastructure project.",
-					},
-					StartYear: 2020,
-					EndYear:   2022,
-				},
-			},
-		},
-		{
-			Title: "Education",
-			Experiences: []entity.Experience{
-				{
-					Title:       "Bachelor in Computer Science",
-					Description: "Studied various aspects of CS...",
-					Company:     "MIT",
-					Achievements: []string{
-						"Graduated with Honors",
-						"Participated in several coding competitions.",
-					},
-					StartYear: 2016,
-					EndYear:   2020,
-				},
-			},
-		},
-	},
-}
 
 func GetHTML(path string, data interface{}) (string, error) {
 	if path == "" || data == nil {
@@ -86,6 +35,7 @@ func GetHTML(path string, data interface{}) (string, error) {
 const (
 	HeaderPath       = "components/molecules/headder.html"
 	ExperiencePath   = "components/atoms/experience.html"
+	ErrorPath        = "components/atoms/error.html"
 	SectionPath      = "components/molecules/section.html"
 	DefaultComponent = "body"
 )
@@ -95,10 +45,15 @@ type SectionData struct {
 	Content string
 }
 
+type ErrorData struct {
+	Message string
+}
+
 // Handle error responses
 func handleError(c *fiber.Ctx, err error) error {
 	fmt.Println(err)
-	return c.Status(fiber.StatusInternalServerError).SendString(fmt.Sprintf("<div>ERROR: %s</div>", err.Error()))
+	errorHTML, _ := GetHTML(ErrorPath, ErrorData{Message: err.Error()})
+	return c.SendString(errorHTML)
 }
 
 // Build component path
@@ -107,12 +62,21 @@ func buildComponentPath(folder, name string) string {
 }
 
 func main() {
+
+	resume, err := entity.ReadResumeFromFile("./example.json")
+
+	if err != nil {
+		fmt.Println(err)
+		return
+
+	}
 	app := fiber.New()
 
 	app.Static("/", "./public")
 
 	app.Get("/cv", func(c *fiber.Ctx) error {
-		headerHTML, err := GetHTML(HeaderPath, resume)
+
+		headerHTML, err := GetHTML(HeaderPath, &resume)
 		if err != nil {
 			return handleError(c, err)
 		}
@@ -141,7 +105,7 @@ func main() {
 			sectionsHTML.WriteString(html.UnescapeString(sectionHTML))
 		}
 
-		return c.Type("html").SendString(headerHTML + sectionsHTML.String())
+		return c.Type("html").SendString(headerHTML + "<div id=\"resume\" class=\"grid grid-cols-2\">" + sectionsHTML.String() + "</div>")
 	})
 
 	app.Get("/:folder/:name", func(c *fiber.Ctx) error {

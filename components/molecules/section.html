@@ -1,4 +1,14 @@
-<div id="section-{{ .Title }}" class="bg-white p-6 rounded shadow-md mb-6">
-  <h2 class="text-2xl font-semibold mb-4">{{ .Title }}</h2>
-  {{ .Content }}
+<div
+  id="section-{{ .Title }}"
+  class="bg-white p-6 rounded-lg shadow-md mb-8 transition-transform transform hover:scale-102 hover:shadow-lg border border-gray-200 hover:border-gray-300"
+>
+  <!-- Section Header with Underline -->
+  <div class="border-b-2 border-gray-300 pb-2 mb-4">
+    <h2 class="text-2xl font-bold tracking-tight text-gray-900">
+      {{ .Title }}
+    </h2>
+  </div>
+
+  <!-- Section Content -->
+  <div class="prose prose-lg text-gray-700 space-y-4">{{ .Content }}</div>
 </div>
