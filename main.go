@@ -3,16 +3,27 @@ package main
 import (
 	"bytes"
 	"fanama/go-htmx/domain/entity"
+	"fanama/go-htmx/infra/handler"
 	"fmt"
-	"html"
 	"html/template"
 	"log"
-	"strings"
 
 	"github.com/gofiber/fiber/v2"
 )
 
 type Component = entity.Component
+
+type SectionData = entity.SectionData
+
+type ErrorData = entity.ErrorData
+
+const (
+	HeaderPath       = "components/molecules/headder.html"
+	ExperiencePath   = "components/atoms/experience.html"
+	ErrorPath        = "components/atoms/error.html"
+	SectionPath      = "components/molecules/section.html"
+	DefaultComponent = "body"
+)
 
 func GetHTML(path string, data interface{}) (string, error) {
 	if path == "" || data == nil {
@@ -32,88 +43,28 @@ func GetHTML(path string, data interface{}) (string, error) {
 	return buf.String(), nil
 }
 
-const (
-	HeaderPath       = "components/molecules/headder.html"
-	ExperiencePath   = "components/atoms/experience.html"
-	ErrorPath        = "components/atoms/error.html"
-	SectionPath      = "components/molecules/section.html"
-	DefaultComponent = "body"
-)
-
-type SectionData struct {
-	Title   string
-	Content string
-}
-
-type ErrorData struct {
-	Message string
-}
-
-// Handle error responses
-func handleError(c *fiber.Ctx, err error) error {
-	fmt.Println(err)
-	errorHTML, _ := GetHTML(ErrorPath, ErrorData{Message: err.Error()})
-	return c.SendString(errorHTML)
-}
-
 // Build component path
 func buildComponentPath(folder, name string) string {
 	return "./components/" + folder + "/" + name + ".html"
 }
 
 func main() {
+	resumeHandler := handler.BuildHandlerResume(ErrorPath, GetHTML)
 
-	resume, err := entity.ReadResumeFromFile("./example.json")
-
-	if err != nil {
-		fmt.Println(err)
-		return
-
-	}
 	app := fiber.New()
 
 	app.Static("/", "./public")
 
-	app.Get("/cv", func(c *fiber.Ctx) error {
+	app.Post("/cv", resumeHandler.CreateResume)
 
-		headerHTML, err := GetHTML(HeaderPath, &resume)
-		if err != nil {
-			return handleError(c, err)
-		}
-
-		var sectionsHTML strings.Builder
-		for _, section := range resume.Sections {
-			var renderedExperienceList strings.Builder
-
-			for _, experience := range section.Experiences {
-				experienceHTML, err := GetHTML(ExperiencePath, experience)
-				if err != nil {
-					return handleError(c, err)
-				}
-				renderedExperienceList.WriteString(html.UnescapeString(experienceHTML))
-			}
-
-			sectionData := SectionData{
-				Title:   section.Title,
-				Content: renderedExperienceList.String(),
-			}
-
-			sectionHTML, err := GetHTML(SectionPath, sectionData)
-			if err != nil {
-				return handleError(c, err)
-			}
-			sectionsHTML.WriteString(html.UnescapeString(sectionHTML))
-		}
-
-		return c.Type("html").SendString(headerHTML + "<div id=\"resume\" class=\"grid grid-cols-2\">" + sectionsHTML.String() + "</div>")
-	})
+	app.Get("/cv", resumeHandler.GetExample)
 
 	app.Get("/:folder/:name", func(c *fiber.Ctx) error {
 		name := c.Params("name", DefaultComponent)
 		folder := c.Params("folder", DefaultComponent)
 		htmlElement, err := GetHTML(buildComponentPath(folder, name), &Component{Title: name, ID: name})
 		if err != nil {
-			return handleError(c, err)
+			return resumeHandler.HandleError(c, err)
 		}
 		return c.SendString(htmlElement)
 	})

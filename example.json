@@ -15,34 +15,44 @@
         {
           "title": "Développeur Fullstack",
           "company": "XXII Group",
-          "description": "XXII CORE est une plateforme logicielle permettant d'analyser en temps réel les flux vidéos des caméras déjà installées dans les villes et les sites privés.",
-          "achievements": ["Corrections de bug des applications"],
           "start_date": "10/2022",
           "end_date": "01/2023",
-          "location": "Paris, France"
+          "location": "Paris, France",
+          "description": "XXII Group, basé à Paris, est à la pointe de l'innovation technologique avec sa plateforme XXII CORE. Cette plateforme logicielle analyse en temps réel les flux vidéos provenant des caméras installées dans les villes et les sites privés. En tant que Développeur Fullstack, ma mission était de contribuer au développement et à l'optimisation de cette plateforme.",
+          "achievements": [
+            "Corrections de bug des applications, améliorant la stabilité et la performance globale de la plateforme.",
+            "Participation à l'amélioration continue du code, en adoptant les meilleures pratiques de développement.",
+            "Collaboration avec des équipes interdisciplinaires pour identifier et résoudre des problématiques complexes.",
+            "Contribution à la mise à jour de la documentation technique, facilitant la maintenance et l'intégration futures."
+          ]
         },
         {
           "title": "Développeur Fullstack",
           "company": "Cliris/Dasia",
-          "description": "Cliris – Pionnier de l'analyse des flux vidéo du trafic client et citoyen",
-          "achievements": [
-            "Mise en place de consoles d'administrations",
-            "Création d'un outil de tag d'objets"
-          ],
           "start_date": "11/2019",
           "end_date": "10/2022",
-          "location": "Paris, France"
+          "location": "Paris, France",
+          "description": "Cliris, associé à Dasia, est un pionnier dans l'analyse des flux vidéo du trafic client et citoyen à Paris. En tant que Développeur Fullstack, j'ai travaillé sur des solutions avant-gardistes pour transformer les flux vidéo en insights exploitables, aidant ainsi les entreprises à optimiser leurs opérations.",
+          "achievements": [
+            "Mise en place de consoles d'administrations, permettant une gestion plus efficace et centralisée des flux vidéo.",
+            "Création d'un outil innovant de tag d'objets, offrant des capacités d'identification et de classification avancées dans les vidéos.",
+            "Contribution majeure à la modernisation de l'architecture back-end et front-end, assurant une performance et une évolutivité optimales.",
+            "Collaboration étroite avec les équipes d'analyse pour comprendre les besoins métier et adapter les solutions en conséquence."
+          ]
         },
         {
           "title": "Développeur Logiciel",
           "company": "Aurera",
-          "description": "Société de conseil informatique",
-          "achievements": [
-            "Développement d'un Chatbot avec Node et les technologies Microsoft"
-          ],
           "start_date": "07/2019",
           "end_date": "10/2019",
-          "location": "Paris"
+          "location": "Paris",
+          "description": "Aurera, une société de conseil informatique basée à Paris, est reconnue pour ses solutions technologiques innovantes et sa capacité à répondre aux défis IT complexes. En tant que Développeur Logiciel chez Aurera, j'ai eu l'opportunité de travailler sur des projets de pointe et d'apporter des solutions à des problématiques variées.",
+          "achievements": [
+            "Développement d'un Chatbot en utilisant Node.js et diverses technologies Microsoft, réussissant à améliorer l'interaction client et automatiser de nombreuses requêtes courantes.",
+            "Collaboration étroite avec une équipe multidisciplinaire, permettant une mise en œuvre rapide et efficace des fonctionnalités.",
+            "Optimisation continue du code et intégration de nouvelles fonctionnalités basées sur les retours des utilisateurs.",
+            "Formation et mentorat de nouveaux membres de l'équipe sur les meilleures pratiques de développement."
+          ]
         }
       ]
     },
@@ -50,10 +60,32 @@
       "title": "ÉTUDES",
       "experiences": [
         {
-          "title": "Master 2",
-          "company": "Supinfo International University",
-          "start_date": "10/2019",
-          "end_date": "10/2020"
+          "title": "Master 2 en Informatique",
+          "company": "Université Internationale Supinfo",
+          "start_date": "10/2017",
+          "end_date": "10/2020",
+          "description": "L'Université Internationale Supinfo, reconnue pour sa spécialisation en informatique et technologie de l'information, propose le programme Master 2 en Informatique qui approfondit des sujets technologiques avancés. Le cours, d'une durée d'un an, équilibre les concepts théoriques avec des applications pratiques, préparant ainsi les étudiants à divers rôles dans le secteur technologique.",
+          "achievements": [
+            "Cours approfondis dans des domaines tels que l'intelligence artificielle, la science des données et la cybersécurité.",
+            "Participation à des projets pratiques simulant des scénarios technologiques réels.",
+            "Collaboration en équipe pour concevoir et mettre en œuvre des solutions logicielles.",
+            "Participation à des ateliers avec des leaders de l'industrie et des professionnels de la technologie pour des perspectives sur les tendances actuelles du marché."
+          ],
+          "location": "Paris, France"
+        },
+        {
+          "title": "Classe Préparatoire TSI",
+          "company": "Lycée Raspail",
+          "start_date": "09/2015",
+          "end_date": "06/2017",
+          "description": "La classe préparatoire TSI (Technologie et Sciences Industrielles) est une formation de deux ans destinée à préparer les étudiants aux concours des grandes écoles d'ingénieurs. La formation couvre des domaines variés tels que la mécanique, l'électronique, l'informatique et les mathématiques, tout en mettant l'accent sur la résolution de problèmes complexes et la pensée critique.",
+          "achievements": [
+            "Acquisition d'une base solide en sciences et technologie industrielles.",
+            "Participation à des projets pratiques et des études de cas pour renforcer les compétences d'ingénierie.",
+            "Préparation intensive pour les concours d'entrée aux grandes écoles d'ingénieurs.",
+            "Collaboration étroite avec des camarades et des professeurs pour approfondir la compréhension des sujets clés."
+          ],
+          "location": "Paris, France"
         }
       ]
     }

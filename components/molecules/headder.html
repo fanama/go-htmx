@@ -1,55 +1,68 @@
-<div class="border p-6 shadow-md rounded-lg bg-white">
-  <!-- Header with gradient background -->
-  <div class="p-4 text-black rounded-lg mb-4">
+<div class="border p-6 shadow-lg rounded-lg bg-gray-50">
+  <!-- Header -->
+  <div class="p-4 bg-gray-100 rounded-lg mb-6">
     <div class="flex justify-between items-center">
       <div>
-        <h1 class="text-4xl font-bold tracking-tight">{{ .Name }}</h1>
-        <p class="mt-1 text-xl font-light italic">{{ .Profession }}</p>
+        <h1 class="text-4xl font-extrabold tracking-tight text-gray-800">
+          {{ .Name }}
+        </h1>
+        <p class="mt-2 text-xl font-medium text-gray-600">{{ .Profession }}</p>
       </div>
     </div>
   </div>
 
-  <!-- Contact Info -->
-  <div class="mt-4 space-y-2 mb-6">
-    <h2 class="text-2xl font-semibold text-gray-700 mb-2">Contacts</h2>
-    <div class="flex items-center text-gray-700">
-      <i class="fas fa-envelope mr-2"></i>
-      <span>Email: {{.Contact.Email}}</span>
-    </div>
-    <div class="flex items-center text-gray-700">
-      <i class="fas fa-map-marker-alt mr-2"></i>
-      <span>Location: {{.Contact.Location}}</span>
-    </div>
-    <div class="flex items-center text-gray-700">
-      <i class="fab fa-linkedin mr-2"></i>
-      <a
-        href="https://{{.Contact.Linkedin}}"
-        class="text-blue-600 hover:underline"
-      >
-        {{.Contact.Linkedin}}
-      </a>
-    </div>
-    <div class="flex items-center text-gray-700">
-      <i class="fas fa-phone-alt mr-2"></i>
-      <span>Phone: {{.Contact.Phone}}</span>
-    </div>
-    <div class="flex items-center text-gray-700">
-      <i class="fas fa-briefcase mr-2"></i>
-      <a
-        href="https://{{.Contact.Portfolio}}"
-        class="text-blue-600 hover:underline"
-      >
-        {{.Contact.Portfolio}}
-      </a>
+  <!-- Contacts Section -->
+  <div class="p-4 bg-white shadow rounded-lg mb-6">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-5">Contacts</h2>
+    <div class="space-y-4">
+      <!-- Email -->
+      <div class="flex items-center text-gray-700">
+        <i class="fas fa-envelope text-lg text-indigo-600 mr-3"></i>
+        <span class="text-sm">Email: {{.Contact.Email}}</span>
+      </div>
+
+      <!-- Location -->
+      <div class="flex items-center text-gray-700">
+        <i class="fas fa-map-marker-alt text-lg text-red-600 mr-3"></i>
+        <span class="text-sm">Location: {{.Contact.Location}}</span>
+      </div>
+
+      <!-- LinkedIn -->
+      <div class="flex items-center text-gray-700">
+        <i class="fab fa-linkedin text-lg text-blue-600 mr-3"></i>
+        <a
+          href="https://{{.Contact.Linkedin}}"
+          class="text-blue-700 hover:underline text-sm"
+        >
+          {{.Contact.Linkedin}}
+        </a>
+      </div>
+
+      <!-- Phone -->
+      <div class="flex items-center text-gray-700">
+        <i class="fas fa-phone-alt text-lg text-green-600 mr-3"></i>
+        <span class="text-sm">Phone: {{.Contact.Phone}}</span>
+      </div>
+
+      <!-- Portfolio -->
+      <div class="flex items-center text-gray-700">
+        <i class="fas fa-briefcase text-lg text-yellow-600 mr-3"></i>
+        <a
+          href="https://{{.Contact.Portfolio}}"
+          class="text-blue-700 hover:underline text-sm"
+        >
+          {{.Contact.Portfolio}}
+        </a>
+      </div>
     </div>
   </div>
 
-  <!-- Skills -->
-  <div class="mb-4">
-    <h2 class="text-2xl font-semibold text-gray-700 mb-2">Skills</h2>
-    <ul class="list-disc ml-6 text-gray-600">
+  <!-- Skills Section -->
+  <div class="p-4 bg-white shadow rounded-lg">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-5">Skills</h2>
+    <ul class="pl-6 space-y-3">
       {{ range .Skills.Technologies }}
-      <li>{{ . }}</li>
+      <li class="list-disc text-gray-700 text-lg">{{ . }}</li>
       {{ end }}
     </ul>
   </div>

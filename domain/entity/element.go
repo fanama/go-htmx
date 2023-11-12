@@ -6,3 +6,12 @@ type Component struct {
 	ID        string
 	Content   string
 }
+
+type SectionData struct {
+	Title   string
+	Content string
+}
+
+type ErrorData struct {
+	Message string
+}
