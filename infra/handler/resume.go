@@ -10,6 +10,8 @@ import (
 
 type Component = entity.Component
 
+type Resume = entity.ResumePage
+
 type SectionData = entity.SectionData
 
 type HandlerResume struct {
@@ -21,6 +23,7 @@ const (
 	ExperiencePath   = "components/atoms/experience.html"
 	ErrorPath        = "components/atoms/error.html"
 	SectionPath      = "components/molecules/section.html"
+	ResumePath       = "components/layout/resume.html"
 	DefaultComponent = "body"
 )
 
@@ -59,7 +62,11 @@ func (this *HandlerResume) GetResume(resume entity.Resume) (string, error) {
 		sectionsHTML.WriteString(html.UnescapeString(sectionHTML))
 	}
 
-	return headerHTML + "<div id=\"resume\" class=\"grid grid-cols-2\">" + sectionsHTML.String() + "</div>", nil
+	resumeHTML, err := this.GetHTML(ResumePath, Resume{Header: headerHTML, Sections: html.UnescapeString(sectionsHTML.String())})
+
+	// fmt.Println(headerHTML, resumeHTML, sectionsHTML.String())
+
+	return html.UnescapeString(resumeHTML), nil
 
 }
 

@@ -1,16 +1,16 @@
 <div
   id="experience-{{ .Title }}"
-  class="bg-gray-50 p-6 rounded-lg shadow-md mb-6 transition-transform transform hover:scale-105 hover:shadow-2xl border border-gray-300"
+  class="bg-gray-50 p-6 text-xs rounded-lg shadow-md transition-transform transform hover:scale-105 hover:shadow-2xl border border-gray-300"
 >
   <!-- Experience Title -->
-  <h3 class="text-2xl font-semibold tracking-tight text-indigo-700 mb-4">
+  <h3 class="font-semibold tracking-tight text-indigo-700 mb-4">
     {{ .Title }}
   </h3>
 
   <!-- Company and Duration -->
   <div class="flex items-center text-gray-700 mb-5">
     <span class="font-bold text-gray-800 mr-2">{{ .Company }}</span>
-    <span class="text-sm bg-indigo-100 px-3 py-1 rounded-full text-indigo-600"
+    <span class="text-xs bg-indigo-100 px-3 py-1 rounded-full text-indigo-600"
       >{{ .StartYear }} - {{ .EndYear }}</span
     >
   </div>
@@ -22,7 +22,7 @@
   {{ if .Achievements }}
   <div class="mt-5 bg-indigo-50 rounded p-4 border-l-4 border-indigo-500">
     <p class="font-semibold text-gray-800 mb-3">Achievements:</p>
-    <ul class="list-disc ml-6 text-gray-700">
+    <ul class="text-xs list-disc ml-6 text-gray-700">
       {{ range .Achievements }}
       <li>{{ . }}</li>
       {{ end }}
