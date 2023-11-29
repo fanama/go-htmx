@@ -1,7 +1,7 @@
 <div
   id="resume"
-  class="flex flex-row w-[210mm] max-h-[297mm] h-fit border rounded-lg bg-gray-50"
+  class="flex flex-col w-[210mm] max-h-[297mm] overflow-hidden border rounded-lg bg-gray-50"
 >
   {{.Header}}
-  <div class="flex flex-col">{{.Sections}}</div>
+  <div class="flex flex-rows">{{.Sections}}</div>
 </div>

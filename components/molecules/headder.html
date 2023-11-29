@@ -1,33 +1,31 @@
 <div class="p-1 text-xs shadow-lg">
   <!-- Header -->
   <div class="p-4 bg-gray-100 rounded-lg mb-1">
-    <div class="flex justify-between items-center">
-      <div>
-        <h1 class="font-extrabold tracking-tight text-gray-800">{{ .Name }}</h1>
-        <p class="mt-2 font-medium text-gray-600">{{ .Profession }}</p>
-      </div>
+    <div class="flex flex-col">
+      <h1 class="font-extrabold text-gray-800">{{ .Name }}</h1>
+      <p class="font-medium text-gray-600">{{ .Profession }}</p>
     </div>
   </div>
 
   <!-- Contacts Section -->
-  <div class="p-1 bg-white shadow rounded-lg mb-6">
-    <h2 class="font-semibold text-gray-800 mb-5">Contacts</h2>
-    <div class="space-y-4">
+  <div class="p-4 bg-white shadow rounded-lg">
+    <h2 class="font-semibold text-gray-800">Contacts</h2>
+    <div class="grid grid-cols-4 gap-1">
       <!-- Email -->
       <div class="flex items-center text-gray-700">
-        <i class="fas fa-envelope text-lg text-indigo-600 mr-3"></i>
-        <span>Email: {{.Contact.Email}}</span>
+        <i class="fas fa-envelope text-lg text-indigo-600"></i>
+        <span> {{.Contact.Email}}</span>
       </div>
 
       <!-- Location -->
       <div class="flex items-center text-gray-700">
-        <i class="fas fa-map-marker-alt text-lg text-red-600 mr-3"></i>
-        <span>Location: {{.Contact.Location}}</span>
+        <i class="fas fa-map-marker-alt text-lg text-red-600"></i>
+        <span> {{.Contact.Location}}</span>
       </div>
 
       <!-- LinkedIn -->
       <div class="flex items-center text-gray-700">
-        <i class="fab fa-linkedin text-lg text-blue-600 mr-3"></i>
+        <i class="fab fa-linkedin text-lg text-blue-600"></i>
         <a
           href="https://{{.Contact.Linkedin}}"
           class="text-blue-700 hover:underline"
@@ -38,13 +36,13 @@
 
       <!-- Phone -->
       <div class="flex items-center text-gray-700">
-        <i class="fas fa-phone-alt text-lg text-green-600 mr-3"></i>
-        <span>Phone: {{.Contact.Phone}}</span>
+        <i class="fas fa-phone-alt text-green-600"></i>
+        <span> {{.Contact.Phone}}</span>
       </div>
 
       <!-- Portfolio -->
       <div class="flex items-center text-gray-700">
-        <i class="fas fa-briefcase text-yellow-600 mr-3"></i>
+        <i class="fas fa-briefcase text-yellow-600"></i>
         <a
           href="https://{{.Contact.Portfolio}}"
           class="text-blue-700 hover:underline"
@@ -57,7 +55,7 @@
 
   <!-- Skills Section -->
   <div class="p-4 bg-white shadow rounded-lg">
-    <h2 class="font-semibold text-gray-800 mb-5">Skills</h2>
+    <h2 class="font-semibold text-gray-800">Skills</h2>
     <div class="p-1 grid grid-cols-4 gap-1">
       {{ range .Skills.Technologies }}
       <div class="text-white p-1 text-center rounded bg-blue-400">{{ . }}</div>
